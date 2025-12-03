@@ -1,66 +1,4 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-
-import { cn } from "@/lib/utils";
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-display uppercase tracking-wider",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg hover:shadow-destructive/30",
-        outline:
-          "border-2 border-primary bg-transparent text-primary hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/20",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-lg hover:shadow-secondary/30",
-        ghost: "hover:bg-muted hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        gaming:
-          "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105",
-        boost:
-          "bg-gradient-to-r from-[hsl(186,100%,50%)] to-[hsl(217,100%,60%)] text-[hsl(222,47%,6%)] hover:opacity-90 shadow-[0_0_30px_hsl(186,100%,50%,0.5)] hover:shadow-[0_0_50px_hsl(186,100%,50%,0.7)] transition-all duration-300 hover:scale-105",
-        success:
-          "bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-accent/30",
-        warning:
-          "bg-warning text-warning-foreground hover:bg-warning/90 shadow-lg hover:shadow-warning/30",
-        neon:
-          "border-2 border-primary bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_20px_hsl(186,100%,50%,0.3)] hover:shadow-[0_0_30px_hsl(186,100%,50%,0.5)]",
-      },
-      size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-md px-4 text-xs",
-        lg: "h-14 rounded-xl px-10 text-base",
-        xl: "h-16 rounded-xl px-12 text-lg",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-}
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
-  }
-);
-Button.displayName = "Button";
-
-export { Button, buttonVariants };
-[03/12, 6:22 pm] DuraiyammalG: import { motion } from "framer-motion";
+ import { motion } from "framer-motion";
 import { Home, Gauge, Wifi, Thermometer, Settings } from "lucide-react";
 
 interface BottomNavProps {
@@ -120,7 +58,7 @@ const BottomNav = ({ activeTab, onTabChange }: BottomNavProps) => {
 };
 
 export default BottomNav;
-[03/12, 6:24 pm] DuraiyammalG: import { useState, useEffect } from "react";
+[03/12, 8:03 pm] DuraiyammalG: import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Monitor, Eye, EyeOff, GripVertical } from "lucide-react";
 import { Button } from "./ui/button";
@@ -259,7 +197,7 @@ const FPSOverlay = () => {
 };
 
 export default FPSOverlay;
-[03/12, 6:25 pm] DuraiyammalG: import { useState } from "react";
+[03/12, 8:04 pm] DuraiyammalG: import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Gamepad2, Check, ChevronDown, Cpu, Thermometer, Wifi, Gauge } from "lucide-react";
 import { Button } from "./ui/button";
@@ -427,7 +365,7 @@ const GameProfiles = ({ onProfileSelect }: GameProfilesProps) => {
 };
 
 export default GameProfiles;
-[03/12, 6:26 pm] DuraiyammalG: import { useState, useEffect, useCallback } from "react";
+[03/12, 8:04 pm] DuraiyammalG: import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Wifi, Play, RotateCcw } from "lucide-react";
 import { Button } from "./ui/button";
@@ -647,7 +585,7 @@ const PingTest = () => {
 };
 
 export default PingTest;
-[03/12, 6:28 pm] DuraiyammalG: import { motion } from "framer-motion";
+[03/12, 8:05 pm] DuraiyammalG: import { motion } from "framer-motion";
 import { Settings, Monitor, Bell, Shield, Info, ChevronRight, Zap } from "lucide-react";
 import { Switch } from "./ui/switch";
 import { useState } from "react";
@@ -787,7 +725,7 @@ const SettingsScreen = () => {
 };
 
 export default SettingsScreen;
-[03/12, 6:29 pm] DuraiyammalG: import { motion } from "framer-motion";
+[03/12, 8:05 pm] DuraiyammalG: import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
 interface SplashScreenProps {
@@ -949,7 +887,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 };
 
 export default SplashScreen;
-[03/12, 6:30 pm] DuraiyammalG: import { motion } from "framer-motion";
+[03/12, 8:06 pm] DuraiyammalG: import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
 interface StatCardProps {
@@ -1034,7 +972,171 @@ const StatCard = ({ icon: Icon, label, value, subValue, color, percentage }: Sta
 };
 
 export default StatCard;
-[03/12, 6:33 pm] DuraiyammalG: import { useState, useEffect } from "react";
+[03/12, 8:07 pm] DuraiyammalG: import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Thermometer, AlertTriangle, Fan, Sun, Smartphone } from "lucide-react";
+import { Button } from "./ui/button";
+
+const TemperatureMonitor = () => {
+  const [temperature, setTemperature] = useState(38);
+  const [isCooling, setIsCooling] = useState(false);
+
+  useEffect(() => {
+    // Simulate temperature fluctuations
+    const interval = setInterval(() => {
+      setTemperature((prev) => {
+        if (isCooling) {
+          return Math.max(35, prev - Math.random() * 2);
+        }
+        const change = (Math.random() - 0.3) * 3;
+        return Math.min(75, Math.max(30, prev + change));
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [isCooling]);
+
+  const getStatus = () => {
+    if (temperature < 45) return { label: "Safe", color: "accent", zone: "green" };
+    if (temperature < 60) return { label: "Warning", color: "warning", zone: "yellow" };
+    return { label: "Danger", color: "destructive", zone: "red" };
+  };
+
+  const status = getStatus();
+
+  const colorClasses: Record<string, { text: string; bg: string; border: string }> = {
+    accent: { text: "text-accent", bg: "bg-accent", border: "border-accent" },
+    warning: { text: "text-warning", bg: "bg-warning", border: "border-warning" },
+    destructive: { text: "text-destructive", bg: "bg-destructive", border: "border-destructive" },
+  };
+
+  const tips = [
+    { icon: Smartphone, text: "Close high-CPU apps" },
+    { icon: Sun, text: "Reduce brightness" },
+    { icon: Fan, text: "Enable Turbo Cool Mode" },
+  ];
+
+  const activateCooling = () => {
+    setIsCooling(true);
+    setTimeout(() => setIsCooling(false), 10000);
+  };
+
+  return (
+    <motion.div
+      className="gaming-card cyber-border"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`p-2 rounded-lg ${colorClasses[status.color].bg}/20 border ${colorClasses[status.color].border}/30`}>
+          <Thermometer className={`w-5 h-5 ${colorClasses[status.color].text}`} />
+        </div>
+        <div>
+          <h3 className="font-display font-bold text-foreground">Temperature Monitor</h3>
+          <p className="text-xs text-muted-foreground">CPU/GPU thermal status</p>
+        </div>
+      </div>
+
+      {/* Temperature gauge */}
+      <div className="relative mb-6">
+        <div className="flex justify-center items-end h-32">
+          {/* Thermometer visual */}
+          <div className="relative">
+            <div className="w-12 h-28 rounded-full bg-muted border-2 border-border overflow-hidden relative">
+              <motion.div
+                className={`absolute bottom-0 w-full ${colorClasses[status.color].bg}`}
+                initial={{ height: "0%" }}
+                animate={{ height: `${Math.min(100, (temperature / 80) * 100)}%` }}
+                transition={{ duration: 0.5 }}
+              />
+              {/* Scale marks */}
+              {[25, 50, 75].map((mark) => (
+                <div
+                  key={mark}
+                  className="absolute w-full border-t border-border/50"
+                  style={{ bottom: `${(mark / 80) * 100}%` }}
+                />
+              ))}
+            </div>
+            {/* Bulb */}
+            <motion.div
+              className={`absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full ${colorClasses[status.color].bg} flex items-center justify-center`}
+              animate={{
+                boxShadow: status.zone === "red" ? [
+                  `0 0 20px hsl(var(--${status.color})/0.5)`,
+                  `0 0 40px hsl(var(--${status.color})/0.8)`,
+                  `0 0 20px hsl(var(--${status.color})/0.5)`,
+                ] : `0 0 20px hsl(var(--${status.color})/0.5)`,
+              }}
+              transition={{ duration: 1, repeat: status.zone === "red" ? Infinity : 0 }}
+            >
+              <span className="font-display font-bold text-lg text-primary-foreground">
+                {Math.round(temperature)}°
+              </span>
+            </motion.div>
+          </div>
+
+          {/* Status badge */}
+          <motion.div
+            className={`ml-6 px-3 py-1 rounded-full ${colorClasses[status.color].bg}/20 border ${colorClasses[status.color].border}/50`}
+            animate={status.zone === "red" ? { scale: [1, 1.05, 1] } : {}}
+            transition={{ duration: 0.5, repeat: status.zone === "red" ? Infinity : 0 }}
+          >
+            <span className={`font-display font-semibold ${colorClasses[status.color].text}`}>
+              {status.label}
+            </span>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Danger alert */}
+      {status.zone === "red" && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="mb-4 p-3 rounded-lg bg-destructive/20 border border-destructive/50 flex items-center gap-3"
+        >
+          <AlertTriangle className="w-6 h-6 text-destructive animate-bounce-subtle" />
+          <div>
+            <p className="font-display font-semibold text-destructive">Thermal Alert!</p>
+            <p className="text-xs text-destructive/80">Device Hot! Turbo Cool Active</p>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Cooling tips */}
+      <div className="space-y-2 mb-4">
+        <p className="text-xs text-muted-foreground uppercase tracking-wider">Cooling Tips:</p>
+        {tips.map((tip, index) => (
+          <motion.div
+            key={tip.text}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="flex items-center gap-2 text-sm text-foreground/80"
+          >
+            <tip.icon className="w-4 h-4 text-primary" />
+            <span>{tip.text}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Cool button */}
+      <Button
+        variant={isCooling ? "outline" : "neon"}
+        className="w-full"
+        onClick={activateCooling}
+        disabled={isCooling}
+      >
+        <Fan className={`w-4 h-4 ${isCooling ? "animate-spin" : ""}`} />
+        {isCooling ? "Cooling Active..." : "Activate Turbo Cool"}
+      </Button>
+    </motion.div>
+  );
+};
+
+export default TemperatureMonitor;
+[03/12, 8:07 pm] DuraiyammalG: import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Check, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
@@ -1234,7 +1336,7 @@ const TurboBoost = ({ onBoostComplete }: TurboBoostProps) => {
 };
 
 export default TurboBoost;
-[03/12, 6:33 pm] DuraiyammalG: <!doctype html>
+[03/12, 8:08 pm] DuraiyammalG: <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -1262,35 +1364,7 @@ export default TurboBoost;
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-[03/12, 6:34 pm] DuraiyammalG: <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>rboGamer Optimizer - Boost Your Gaming Performance</title>
-    <meta name="description" content="Optimize your device for gaming with one tap. Free up RAM, reduce CPU load, and get the best FPS for Free Fire, BGMI, COD Mobile, and Roblox." />
-    <meta name="author" content="rboGamer" />
-    <meta name="theme-color" content="#00d4ff" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <meta property="og:title" content="rboGamer Optimizer - Boost Your Gaming Performance" />
-    <meta property="og:description" content="One-tap game optimization for mobile gamers. Boost FPS, reduce lag, and dominate." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="rboGamer Optimizer" />
-    <meta name="twitter:description" content="Boost. Dominate. Win. One-tap game optimization." />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-[03/12, 6:34 pm] DuraiyammalG: import * as React from "react";
+[03/12, 8:08 pm] DuraiyammalG: import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -1352,7 +1426,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
-[03/12, 6:35 pm] DuraiyammalG: @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+[03/12, 8:10 pm] DuraiyammalG: @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -1585,7 +1659,7 @@ export { Button, buttonVariants };
     animation: shimmer 2s infinite;
   }
 }
-[03/12, 6:37 pm] DuraiyammalG: import { useState, useEffect } from "react";
+[03/12, 8:11 pm] DuraiyammalG: import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cpu, MemoryStick, Thermometer, Wifi, Zap } from "lucide-react";
 import SplashScreen from "@/components/SplashScreen";
@@ -1794,7 +1868,7 @@ const Index = () => {
 };
 
 export default Index;
-[03/12, 6:37 pm] DuraiyammalG: import type { Config } from "tailwindcss";
+[03/12, 8:12 pm] DuraiyammalG: import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
